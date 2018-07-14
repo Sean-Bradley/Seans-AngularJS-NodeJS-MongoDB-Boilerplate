@@ -1,6 +1,7 @@
 # Seans AngularJS <-> NodeJS <-> MongoDB Boilerplate
 
-Also comes with the mocha chai testing framework.
+Also comes with Mocha and Chai test scripts for testing the nodejs application
+Also comes with Protractor and Jasmine for e2e testing of the Angular application
 
 *This project depends on MongoDB. You will need to pre install it to your local machine from* https://docs.mongodb.com/manual/installation/
 
@@ -36,8 +37,20 @@ This will automatically,
 All the AngularJS specific files should be edited from the `ngSrc` folder.
 Any changes will be tested, recompiled and automatically saved to the public `www` folder.
 
+## e2e Testing
 
+There is also the option to do e2e testing with protractor and jasmine.
 
+Before you start, you need to install protractor
 
+`npm install -g protractor`
 
+then, update the web driver
 
+`npm run update-webdriver`
+
+Now you can run
+
+`npm run protractor`
+
+To see the e2e user interface tests.
