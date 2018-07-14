@@ -1,7 +1,6 @@
 app.controller('catsCtrl', function ($scope, $http) {
     $scope.title = "Cats";
     $scope.description = "Managing Cat Data";
-    $scope.error = "";
     $scope.catName = "";
     $scope.editing = [];
 

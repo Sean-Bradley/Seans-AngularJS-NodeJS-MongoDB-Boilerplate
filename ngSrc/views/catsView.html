@@ -49,19 +49,13 @@
                 </div>
             </td>
         </tfoot>
-
     </table>
-
-    <span>{{error}}</span>
-
-
 
     <form class="form-inline" name="addCatForm">
         <p>Cat Name:
             <input type="text" name="catName" ng-model="catName" required />
-            <span style="color:red" ng-show="addCatForm.catName.$dirty && addCatForm.catName.$error.required">Cat Name is required.</span>
-
             <button ng-click="addCat()" ng-disabled="addCatForm.catName.$invalid">Add Cat</button>
+            <span style="color:red" ng-show="addCatForm.catName.$dirty && addCatForm.catName.$error.required">Cat Name is required.</span>            
         </p>
     </form>
     <hr/>

@@ -31,7 +31,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('watch', function () {
-    return gulp.watch(['ngSrc/*.html', 'ngSrc/**/*.html','ngSrc/*.js', 'ngSrc/**/*.js', 'test/*.js'], ['test', 'html', 'scripts']);
+    return gulp.watch(['ngSrc/*.html', 'ngSrc/**/*.html','ngSrc/*.js', 'ngSrc/**/*.js', 'models/*.js', 'routes/*.js', 'tests/*.js'], ['test', 'html', 'scripts']);
 })
 
 gulp.task('install', function () {
