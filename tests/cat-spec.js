@@ -30,32 +30,3 @@ describe('Tests on the Cat Model', _ => {
     })
 })
 
-
-//import catsService from '../ngSrc/services/catsService.js';
-//console.dir(catsService);
-// describe('Basic Mocha String Test', function () {
-//     it('should return number of characters in a string', function () {
-//         assert.equal("Hello".length, 5);
-//     });
-//     it('should return first character of the string', function () {
-//         assert.equal("Hello".charAt(0), 'H');
-//     });
-// });
-
-// describe('this is a description for the logincomntroler bit', function () {
-//     it('should return true if valid user id', function () {
-//         var isValid = loginController.isValidUserId(['abc123', 'xyz321'], 'abc123')
-//         assert.equal(isValid, true);
-//     });
-// })
-
-
-// describe('async test', function () {
-//     it('should return true if valid user id', function (done) {
-//         loginController.isValidUserIdAsync(['abc123', 'xyz321'], 'abc123',
-//             function (isValid) {
-//                 assert.equal(isValid, true);
-//                 done();
-//             });
-//     });
-// })
