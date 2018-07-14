@@ -10,7 +10,7 @@ Also comes with the mocha chai testing framework.
 
 `npm install`
 
-`npm start`
+`npm start` or `nodemon start.js` id you prefer to have the nodejs server auto restart after file changes.
 
 ## Developing
 
@@ -30,9 +30,6 @@ This will automatically,
 You should edit the files in the `ngSrc` folder.
 This is where all the angularjs project specific files are stored.
 Any changes will be tested, recompiled and automatically saved to the `www` folder
-
-If you change files in the root folder, such as the `server.js` or other settings files, you may need to re run `npm start` to see any changes.
-
 
 
 
