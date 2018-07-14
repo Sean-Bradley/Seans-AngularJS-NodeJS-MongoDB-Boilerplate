@@ -2,7 +2,9 @@
 
 Also comes with the mocha chai testing framemwork.
 
-To install
+*This project depends on MongoDB. You will need to pre install it to your local machine from* https://docs.mongodb.com/manual/installation/
+
+## Install
 
 `git clone https://github.com/Sean-Bradley/Seans-AngularJS-NodeJS-MongoDB-Boilerplate.git`
 
