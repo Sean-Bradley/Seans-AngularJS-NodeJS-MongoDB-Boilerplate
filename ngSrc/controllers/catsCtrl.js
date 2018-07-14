@@ -1,41 +1,42 @@
-app.controller('catsCtrl', function ($scope, $http) {
+app.controller('catsCtrl', function ($scope, catsService, prettyPrint) {
     $scope.title = "Cats";
     $scope.description = "Managing Cat Data";
     $scope.catName = "";
-    $scope.editing = [];
+    $scope.editing = [];  
 
     $scope.getCats = function () {
         try {
-            $http.get("api/cats")
-                .then(function (response) {
-                    $scope.items = response.data;
-                }, function myError(response) {
-                    $scope.debugPanel = "Error\n" + prettyPrint(response);
-                });
-
-            $scope.numberOfPages = function () {
-                return Math.ceil($scope.items.length / $scope.pageSize);
-            };
+            catsService.get()
+                .then(function (status) {
+                    if (status.code === 1) {
+                        $scope.items = status.data;
+                        $scope.numberOfPages = function () {
+                            return Math.ceil($scope.items.length / $scope.pageSize);
+                        };
+                    } else {
+                        $scope.debugPanel = "Error\n" + prettyPrint(status);
+                    }
+                }), function (e) {
+                    $scope.debugPanel = "Error\n" + prettyPrint(e);
+                };
         } catch (e) {
             $scope.debugPanel = "Error\n" + prettyPrint(e);
         }
     }
     $scope.addCat = function () {
         try {
-            var config = {
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "Cache-Control": "no-cache"
-                }
-            }
-            $http.post("api/cats", "name=" + $scope.catName, config)
-                .then(function (data, status, headers, config) {
-                    $scope.debugPanel = data;
-                    $scope.getCats();
-                    $scope.catName = "";
-                    $scope.addCatForm.$setPristine();
-                }, function myError(response) {
-                    $scope.debugPanel = "Error\n" + prettyPrint(response);
+            catsService.add($scope.catName)
+                .then(function (status) {
+                    if (status.code === 1) {
+                        $scope.debugPanel = status;
+                        $scope.getCats();
+                        $scope.catName = "";
+                        $scope.addCatForm.$setPristine();
+                    } else {
+                        $scope.debugPanel = "Error\n" + prettyPrint(status);
+                    }
+                }, function (e) {
+                    $scope.debugPanel = "Error\n" + prettyPrint(e);
                 });
         } catch (e) {
             $scope.debugPanel = "Error\n" + prettyPrint(e);
@@ -43,11 +44,15 @@ app.controller('catsCtrl', function ($scope, $http) {
     };
     $scope.delete = function (_id) {
         try {
-            $http.delete("api/cats/" + _id, null)
-                .then(function () {
-                    $scope.getCats();
-                }, function myError(response) {
-                    $scope.debugPanel = "Error\n" + prettyPrint(response);
+            catsService.delete(_id)
+                .then(function (status) {
+                    if (status.code === 1) {
+                        $scope.getCats();
+                    } else {
+                        $scope.debugPanel = "Error\n" + prettyPrint(status);
+                    }
+                }, function (e) {
+                    $scope.debugPanel = "Error\n" + prettyPrint(e);
                 });
         } catch (e) {
             $scope.debugPanel = "Error\n" + prettyPrint(e);
@@ -62,13 +67,17 @@ app.controller('catsCtrl', function ($scope, $http) {
     }
     $scope.update = function (_id, item) {
         try {
-            $http.put("api/cats/" + _id, item)
-                .then(function (data) {
-                    $scope.debugPanel = data;
-                    $scope.editing[_id] = false;
-                }, function myError(response) {
-                    $scope.debugPanel = "Error\n" + prettyPrint(response);
-                });
+            catsService.update(_id, item)
+                .then(function (status) {
+                    if (status.code === 1) {
+                        $scope.debugPanel = status;
+                        $scope.editing[_id] = false;
+                    } else {
+                        $scope.debugPanel = "Error\n" + prettyPrint(status);
+                    }
+                }, function (e) {
+                    $scope.debugPanel = "Error\n" + prettyPrint(e);
+                });            
         } catch (e) {
             $scope.debugPanel = "Error\n" + prettyPrint(e);
         }
@@ -126,11 +135,5 @@ app.controller('catsCtrl', function ($scope, $http) {
         $scope.currentPage = n;
     };
 
-    var prettyPrint = function (o) {
-        var r = "";
-        for (var p in o) {
-            r += p + " : " + o[p] + "\n";
-        }
-        return r;
-    }
+
 });

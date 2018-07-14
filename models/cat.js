@@ -1,11 +1,10 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose';
 
-var Schema = new Schema({
+const Schema = new mongoose.Schema({
     genus: { type: String, default: "felis" },
     name: { type: String, default: "" },
     isHungry:  { type: Boolean, default: true },
     lastFedDate: {type: Date, default: Date.now()}
 });
 
-module.exports = mongoose.model('Cat', Schema);
+export default mongoose.model('Cat', Schema);
