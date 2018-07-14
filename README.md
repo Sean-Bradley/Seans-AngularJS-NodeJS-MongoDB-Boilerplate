@@ -4,6 +4,11 @@ Comes With tests
 - Mocha and Chai test scripts for testing the nodejs application
 - Protractor e2e and Jasmine tests for the Angular application
 
+And
+- Auto concat using Gulp Concat
+- Minify using Gulp Uglify
+- ES6 to ES5 conversion using Babel
+- and deploy to public www folder using Gulp
 
 *This project depends on MongoDB. You will need to pre install it to your local machine from* https://docs.mongodb.com/manual/installation/
 
