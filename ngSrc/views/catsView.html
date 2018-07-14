@@ -1,6 +1,5 @@
 <div ng-controller="catsCtrl">
     <h1>{{title}}</h1>
-
     <table class="table table-striped">
         <thead>
             <tr>
@@ -13,17 +12,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="item in items |
+            <tr ng-repeat="item in items | 
+            orderBy: 'lastFedDate':true |
             offset: currentPage*itemsPerPage |
             limitTo: itemsPerPage">
                 <td>{{(currentPage * itemsPerPage) + ($index + 1)}}</td>
                 <td width="50%">
                     <span ng-show="!editing[item._id]" ng-bind="item.name"></span>
-                    <input ng-show="editing[item._id]" type="text" ng-model="item.name">
+                    <input ng-show="editing[item._id]" type="text" ng-model="item.name" required>
                     <button ng-show="editing[item._id]" ng-click="update(item._id, item)">Update</button>
                 </td>
                 <td>{{item.isHungry}}</td>
-                <td>{{item.lastFedDate}}</td>
+                <td>{{item.lastFedDate | date:'medium'}}</td>
                 <td>
                     <button ng-show="!editing[item._id]" ng-click="edit(item._id)">Edit</button>
                 </td>
@@ -56,9 +56,16 @@
 
 
 
-    <p>Cat Name:
-        <input type="text" name="catName" ng-model="catName" required />
-    </p>
-    <button ng-click="addCat()">Add Cat</button>
-    <hr /> {{ PostDataResponse }}
+    <form class="form-inline" name="addCatForm">
+        <p>Cat Name:
+            <input type="text" name="catName" ng-model="catName" required />
+            <span style="color:red" ng-show="addCatForm.catName.$dirty && addCatForm.catName.$error.required">Cat Name is required.</span>
+
+            <button ng-click="addCat()" ng-disabled="addCatForm.catName.$invalid">Add Cat</button>
+        </p>
+    </form>
+    <hr/>
+    <div>Debug
+        <pre>{{ PostDataResponse }}</pre>
+    </div>
 </div>

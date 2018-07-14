@@ -18,19 +18,18 @@ app.controller('catsCtrl', function ($scope, $http) {
         };
     }
     $scope.addCat = function () {
-        var data = $.param({
-            name: $scope.catName
-        });
         var config = {
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Cache-Control": "no-cache"
             }
         }
-        $http.post("api/cats", data, config)
+        $http.post("api/cats", "name=" + $scope.catName, config)
             .then(function (data, status, headers, config) {
                 $scope.PostDataResponse = data;
                 $scope.getCats();
                 $scope.catName = "";
+                $scope.addCatForm.$setPristine();
             }, function myError(response) {
                 $scope.error = "problem";//response.statusText;
             });
@@ -48,7 +47,8 @@ app.controller('catsCtrl', function ($scope, $http) {
     }
     $scope.update = function (_id, item) {
         $http.put("api/cats/" + _id, item)
-            .then(function () {
+            .then(function (data) {
+                $scope.PostDataResponse = data;
                 $scope.editing[_id] = false;
             }, function myError(response) {
                 $scope.error = "problem";//response.statusText;
