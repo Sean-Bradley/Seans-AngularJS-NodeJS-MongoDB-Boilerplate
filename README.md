@@ -1,7 +1,9 @@
 # Seans AngularJS <-> NodeJS <-> MongoDB Boilerplate
 
-Also comes with Mocha and Chai test scripts for testing the nodejs application
-Also comes with Protractor and Jasmine for e2e testing of the Angular application
+Comes With tests
+- Mocha and Chai test scripts for testing the nodejs application
+- Protractor e2e and Jasmine tests for the Angular application
+
 
 *This project depends on MongoDB. You will need to pre install it to your local machine from* https://docs.mongodb.com/manual/installation/
 
@@ -53,4 +55,3 @@ Now you can run
 
 `npm run protractor`
 
-To see the e2e user interface tests.
