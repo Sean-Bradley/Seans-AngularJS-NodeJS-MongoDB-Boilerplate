@@ -25,5 +25,14 @@ This will automatically,
 - and minify the js using gulp-uglify,
 - and copy the new scripts and html to the public `www` folder
 
+You should edit the files in the ngSrc folder.
+This is where all the angularjs specific files are stored.
+Any changes will be tested, recompiled and automatically saved to the `www` folder
+
+If you change files in the root folder, ie, the server.js or other settings files, you may need to re run `npm start` to see any changes.
+
+
+
+
 
 
