@@ -33,3 +33,10 @@ gulp.task('test', function () {
 gulp.task('watch', function () {
     return gulp.watch(['ngSrc/*.html', 'ngSrc/**/*.html','ngSrc/*.js', 'ngSrc/**/*.js', 'test/*.js'], ['test', 'html', 'scripts']);
 })
+
+gulp.task('install', function () {
+    gulp.start('test');
+    gulp.start('html');
+    gulp.start('scripts');
+})
+
