@@ -1,9 +1,9 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
+import express from 'express'
+import path from 'path'
+import bodyParser from 'body-parser'
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/seanwasere');
+import mongoose from 'mongoose'
+mongoose.connect('mongodb://localhost:27017/seanwasere', { useNewUrlParser: true });
 
 var Cat = require('./models/cat.js');
 

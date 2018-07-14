@@ -1,6 +1,6 @@
 # Seans AngularJS <-> NodeJS <-> MongoDB Boilerplate
 
-Also comes with the mocha chai testing framemwork.
+Also comes with the mocha chai testing framework.
 
 *This project depends on MongoDB. You will need to pre install it to your local machine from* https://docs.mongodb.com/manual/installation/
 
@@ -27,11 +27,11 @@ This will automatically,
 - and minify the js using gulp-uglify,
 - and copy the new scripts and html to the public `www` folder
 
-You should edit the files in the ngSrc folder.
-This is where all the angularjs specific files are stored.
+You should edit the files in the `ngSrc` folder.
+This is where all the angularjs project specific files are stored.
 Any changes will be tested, recompiled and automatically saved to the `www` folder
 
-If you change files in the root folder, ie, the server.js or other settings files, you may need to re run `npm start` to see any changes.
+If you change files in the root folder, such as the `server.js` or other settings files, you may need to re run `npm start` to see any changes.
 
 
 

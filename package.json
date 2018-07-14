@@ -2,8 +2,9 @@
   "name": "seans-angularjs-nodejs-mongodb-boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "",
   "scripts": {
+    "start": "node start.js",
     "test": "mocha --compilers js:babel-core/register",
     "postinstall": "bower install && gulp install"
   },
