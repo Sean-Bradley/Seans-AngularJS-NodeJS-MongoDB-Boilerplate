@@ -28,6 +28,16 @@ describe('Cats', function () {
     //browser.driver.sleep(5000);
   });
 
+  it('"add cats" button should be disabled by default', function () {
+    expect(element(by.buttonText('Add Cat')).getAttribute('disabled')).toEqual('true');
+    //browser.driver.sleep(5000);
+  });
+
+  it('"add cats" button should be enabled when text is added to "catName" input', function () {
+    element(by.model('catName')).sendKeys('testcat');    
+    expect(element(by.buttonText('Add Cat')).getAttribute('disabled')).toEqual(null);
+    //browser.driver.sleep(5000);
+  });
 });
 
 describe('Dogs', function () {
