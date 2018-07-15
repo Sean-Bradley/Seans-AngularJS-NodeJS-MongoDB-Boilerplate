@@ -1,8 +1,9 @@
 # Seans AngularJS <-> NodeJS <-> MongoDB Boilerplate
 
 Comes With tests
-- Mocha and Chai test scripts for testing the nodejs application
-- Protractor e2e and Jasmine tests for the Angular application
+- Mocha and Chai test scripts for testing the nodejs models
+- Chai-Http for testing the nodejs routes
+- Protractor e2e and Jasmine tests for the AngularJS UI
 
 And
 - Auto concat using Gulp Concat
@@ -42,7 +43,7 @@ This will automatically,
 - and copy the new scripts and html to the public `www` folder
 
 All the AngularJS specific files should be edited from the `ngSrc` folder.
-Any changes will be tested, recompiled and automatically saved to the public `www` folder.
+Any changes will be automatically tested, recompiled, minified and saved to the public `www` folder.
 
 ## e2e Testing
 
