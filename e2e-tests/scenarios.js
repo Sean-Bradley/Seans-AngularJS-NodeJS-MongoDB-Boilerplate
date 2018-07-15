@@ -3,7 +3,7 @@
 describe('Home', function () {
 
   beforeEach(function () {
-    browser.get('http://127.0.0.1:8080');
+    browser.get('');
   });
 
   it('should render home page when url contains no path', function () {
@@ -17,10 +17,10 @@ describe('Home', function () {
 describe('Cats', function () {
 
   beforeEach(function () {
-    browser.get('http://127.0.0.1:8080/#!/cats');
+    browser.get('#!/cats');
   });
 
-  it('should render cats when user navigates to /cats', function () {
+  it('should render cats when user navigates to #!/cats', function () {
     expect(element.all(by.css('[ng-view] h1'))
       .first()
       .getText()).
@@ -33,7 +33,7 @@ describe('Cats', function () {
 describe('Dogs', function () {
 
   beforeEach(function () {
-    browser.get('http://127.0.0.1:8080/#!/dogs');
+    browser.get('#!/dogs');
   });
 
   it('should render Dogs when user navigates to #!/Dogs', function () {
@@ -47,7 +47,7 @@ describe('Dogs', function () {
 describe('Birds', function () {
 
   beforeEach(function () {
-    browser.get('http://127.0.0.1:8080/#!/birds');
+    browser.get('#!/birds');
   });
 
   it('should render Birds when user navigates to #!/Birds', function () {
