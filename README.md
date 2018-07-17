@@ -10,27 +10,37 @@ And
 - Minify using Gulp Uglify
 - ES6 to ES5 conversion using Babel
 - and deploy to public www folder using Gulp
+- csrf prevention using csurf
+- now uses docker-compose 
 
-*This project depends on MongoDB. You will need to pre install it to your local machine from* https://docs.mongodb.com/manual/installation/
 
 ## Install
 
 `git clone https://github.com/Sean-Bradley/Seans-AngularJS-NodeJS-MongoDB-Boilerplate.git`
 
+`cd Seans-AngularJS-NodeJS-MongoDB-Boilerplate`
+
+`cd nodejs`
+
 `npm install`
 
 ## Starting
 
-`npm start` 
+`cd ..`  *cd back to project root*
 
-or 
+`docker-compose up`
 
-`nodemon start.js` if you prefer to have the nodejs server auto restart after file changes.
+This was set up using docker toolbox on windows 10,
+Site will be available at http://192.168.99.100
+View using chrome or firefox since edge browser cannot see VirtualBox hosted websites locally.
+
 
 ## Developing
 
 If you are developing the code,
 you will also need to open a second console and run 
+
+`cd nodejs`
 
 `gulp watch`
 
@@ -50,6 +60,8 @@ Any changes will be automatically tested, recompiled, minified and saved to the 
 There is also the option to do e2e testing with protractor and jasmine.
 
 Before you start, you need to install protractor
+
+`cd nodejs`
 
 `npm install -g protractor`
 
