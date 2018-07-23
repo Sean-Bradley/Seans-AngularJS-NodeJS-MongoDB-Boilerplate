@@ -11,8 +11,7 @@ And
 - ES6 to ES5 conversion using Babel
 - and deploy to public www folder using Gulp
 - csrf prevention using csurf
-- now uses docker-compose 
-
+- now dockerised with docker-compose 
 
 ## Install
 
@@ -24,16 +23,26 @@ And
 
 `npm install`
 
-## Starting
+
+## To start
 
 `cd ..`  *cd back to project root*
 
 `docker-compose up`
 
-This was set up using docker toolbox on windows 10,
-Site will be available at http://192.168.99.100
-View using chrome or firefox since edge browser cannot see VirtualBox hosted websites locally.
+then visit
 
+`https://localhost:8443`
+
+## Note about docker toolbox on windows 10
+If you use docker toolbox on windows 10 home, the site will be published at ip 192.168.99.100.
+* You should open the VBox manager, 
+* Click the default machine used by docker
+* Right click and choose Settings 
+* Network > Adapter 1 > Advanced > Port Forwarding
+* Click "+" to add a new Rule
+* Set Host IP to 127.0.0.1, Host Port 8443 
+* Guest IP to 192.168.99.100 and Guest Port 8443
 
 ## Developing
 
