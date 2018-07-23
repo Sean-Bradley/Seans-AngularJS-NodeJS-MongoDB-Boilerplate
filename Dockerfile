@@ -1,9 +1,6 @@
 FROM nginx
 LABEL Sean Bradley <seanwasere@gmail.com>
 COPY ./nginx.conf		/etc/nginx/nginx.conf
-#COPY ./nginx.crt		/etc/nginx/nginx.crt
-#COPY ./nginx.key		/etc/nginx/nginx.key
-COPY ./www			/usr/share/nginx/html
-#EXPOSE 8443
-#EXPOSE 443
-EXPOSE 80
+COPY ./localhost.crt	/etc/nginx/localhost.crt
+COPY ./localhost.key	/etc/nginx/localhost.key
+COPY ./www			/www

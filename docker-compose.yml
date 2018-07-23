@@ -3,9 +3,9 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
+      #- "80:80"
       #- "443:443"
-      #- "8443:8443"
+      - "8443:8443"
     command: nginx -g "daemon off";
     volumes:
       - ./www:/usr/share/nginx/html:ro
