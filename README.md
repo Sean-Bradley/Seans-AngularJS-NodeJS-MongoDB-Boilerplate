@@ -44,6 +44,8 @@ If you use docker toolbox on windows 10 home, the site will be published at ip 1
 * Set Host IP to 127.0.0.1, Host Port 8443 
 * Guest IP to 192.168.99.100 and Guest Port 8443
 
+![screen shot](screenshot.png)
+
 ## Developing
 
 If you are developing the code,
